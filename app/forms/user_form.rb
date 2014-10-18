@@ -2,12 +2,12 @@ class UserForm
   include ActiveModel::Model
   extend ActiveModel::Naming
   include ActiveModel::Validations
-  
+  include UserValidations
+  include UserProfileValidations
+
   delegate :login, :email, :to => :user
   delegate :city, :postal_code, :street, :display_name, :to => :user_profile
   
-  validates :login, :presence => true
-
   attr_accessor :weather
   validates :weather, :presence => true
 
