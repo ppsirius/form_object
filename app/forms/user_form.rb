@@ -20,6 +20,7 @@ class UserForm
   end
 
   def submit(params)
+    self.weather = params[:weather]
     user.attributes = params.slice(:login, :email)
     user_profile.attributes = params.slice(:city, :postal_code, :street, :display_name)
     if valid?
